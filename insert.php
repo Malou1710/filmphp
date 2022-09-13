@@ -1,16 +1,50 @@
 <?php
 require "settings/init.php";
 
-if (!empty($_POST ["data"])){
-    $data = $_POST ["data"];
+if (!empty($_POST["data"])){
+    $data = $_POST["data"];
 
-    $sql = "INSERT INTO film (filmTitel, filmRating, filmAar, filmResumé, filmMPA, filmTid, filmInstruktør, filmCitat, filmUdkommelsesdato) VALUES (:prodNavn, :prodBeskrivelse, :prodPris)";
-    $bind = [":filmTitel" => $data["filmTitel"], ":filmRating" => $data["filmRating"], ":filmAar" => $data["filmAar"], ":filmSkuespillere" => $data["filmSkuespillere"], ":filmResumé" => $data["filmResumé"], ":filmMPA" => $data["filmMPA"], "filmTid" => $data["filmTid"], "filmInstruktor" => $data["filmInstruktor"], "filmCitat" => $data["filmCitat"], "filmUdkommelsesdato" => $data["filmUdkommelsesdato"]];
+    $sql = "INSERT INTO Filmsøgning (
+                filmTitel,
+                filmRating,
+                filmAar,
+                filmSkuespillere,
+                filmResume,
+                filmMPA,
+                filmTid,
+                filmInstruktor,
+                filmCitat,
+                filmUdkommelsesdato
+            ) 
+            VALUES(
+                :filmTitel,
+                :filmRating,
+                :filmAar,
+                :filmSkuespillere,
+                :filmResume,
+                :filmMPA,
+                :filmTid,
+                :filmInstruktor,
+                :filmCitat,
+                :filmUdkommelsesdato
+            )";
+    $bind = [
+        ":filmTitel" => $data["filmTitel"],
+        ":filmRating" => $data["filmRating"],
+        ":filmAar" => $data["filmAar"],
+        ":filmSkuespillere" => $data["filmSkuespillere"],
+        ":filmResume" => $data["filmResume"],
+        ":filmMPA" => $data["filmMPA"],
+        ":filmTid" => $data["filmTid"],
+        ":filmInstruktor" => $data["filmInstruktor"],
+        ":filmCitat" => $data["filmCitat"],
+        ":filmUdkommelsesdato" => $data["filmUdkommelsesdato"],
+    ];
 
     $db->sql($sql, $bind, false);
 
 
-    echo "Produktet er nu indsat. <a href='insert.php'>Indsæt et produkt mere</a>";
+    echo "<h2 class='text-center'>Produktet er nu indsat.</h2> <h2 style='text-align: center'></h2> <a href='insert.php'><h3>Indsæt et produkt mere</h3></a>";
     exit();
 }
 ?>
@@ -46,84 +80,89 @@ if (!empty($_POST ["data"])){
 <!-- i <body> har man alt indhold på siden som brugeren kan se -->
 <body>
 
-    <div class="container-fluid bg-dark text-light p-2">
+    <div class="container-fluid bg-dark text-light p-5">
+        <h1>FILM INFO</h1>
         <form method="post" action="insert.php">
             <div class="row">
 <!--                filmTitel-->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 p-2">
                     <div class="form-group">
-                        <label for="filmTitel" class="">Filmtitel</label>
+                        <label for="filmTitel" class="filmtitel">Filmtitel</label>
                         <input class="form-control" type="text" name="data[filmTitel]" id="filmTitel" placeholder="Filmtitel" value="">
                     </div>
                 </div>
 <!--                filmRating-->
-                <div class="col-2 col-md-6">
+                <div class="col-12 col-md-6 p-2">
                     <div class="form-group">
                         <label for="filmRating">Film rating</label>
-                        <input class="form-control" type="number" step="0.1" name="data[filmRating]" id="filmRating" placeholder="film rating" value="">
+                        <input class="form-control" type="number" step="0.1" name="data[filmRating]" id="filmRating" placeholder="0-10" value="">
                     </div>
                 </div>
 
 <!--                filmAar-->
-                <div class="col-2 col-md-6">
+                <div class="col-12 col-md-6 p-2">
                     <div class="form-group">
                         <label for="filmAar">År</label>
-                        <input class="form-control" type="number" step="0.1" name="data[filmAar]" id="filmAar" placeholder="filmAar" value="">
+                        <input class="form-control" type="number" step="0.1" name="data[filmAar]" id="filmAar" placeholder="År" value="">
                     </div>
                 </div>
 
 <!--                filmSkuespillere-->
-                <div class="col-2 col-md-6">
-                    <div class="form-group">
-                        <label for="filmAar">År</label>
-                        <input class="form-control" type="number" step="0.1" name="data[filmAar]" id="filmAar" placeholder="MPA årstal" value="">
-                    </div>
-                </div>
-
-
-                <div class="col-2 col-md-6">
+                <div class="col-12 col-md-6 p-2">
                     <div class="form-group">
                         <label for="filmSkuespillere">Skuespillere</label>
-                        <input class="form-control" type="number" step="0.1" name="data[filmSkuespillere]" id="filmMPA" placeholder="filmSkuespillere" value="">
+                        <input class="form-control" type="text" step="0.1" name="data[filmSkuespillere]" id="filmSkuespillere" placeholder="Skuespillere" value="">
                     </div>
                 </div>
 
-                <div class="col-2 col-md-6">
+<!--                filmMPA-->
+
+                <div class="col-12 col-md-6 p-2">
                     <div class="form-group">
-                        <label for="filmResumé">Filmresumé</label>
-                        <input class="form-control" type="number" step="0.1" name="data[filmResumé]" id="filmMPA" placeholder="Filmresumé" value="">
+                        <label for="filmMPA">MPA-rating</label>
+                        <input class="form-control" type="number" step="0.1" name="data[filmMPA]" id="filmMPA" placeholder="FilmMPA" value="">
                     </div>
                 </div>
-<!--                filmÅr-->
-                <div class="col-2 col-md-6">
+<!--                filmTid-->
+                <div class="col-12 col-md-6 p-2">
                     <div class="form-group">
-                        <label for="prodBeskrivelse">Produkt beskrivelse</label>
-                        <textarea class="form-control" name="data[prodBeskrivelse]" id="prodBeskrivelse"></textarea>
+                        <label for="filmTid">Tid</label>
+                        <input type="time" class="form-control" name="data[filmTid]" id="filmTid">
                     </div>
                 </div>
-<!--                filmResumé-->
-                <div class="col-2 col-md-6">
+<!--                filmInstuktør-->
+                <div class="col-12 col-md-6 p-2">
                     <div class="form-group">
-                        <label for="prodPris">Produkt pris</label>
-                        <input class="form-control" type="number" step="0.1" name="data[prodPris]" id="prodPris" placeholder="Produkt pris" value="">
+                        <label for="filmInstruktor">Instruktør</label>
+                        <input class="form-control" type="text" step="0.1" name="data[filmInstruktor]" id="filmInstruktor" placeholder="Instruktør" value="">
                     </div>
                 </div>
-<!--                filmMPA-rating-->
-                <div class="col-2 col-md-6">
+<!--                filmCitat-->
+                <div class="col-12 col-md-6 p-2">
                     <div class="form-group">
-                        <label for="prodPris">MPA</label>
-                        <input class="form-control" type="number" step="0.1" name="data[filmMPA]" id="filmMPA" placeholder="MPA Rating" value="">
+                        <label for="filmCitat">Kendt citat fra filmen</label>
+                        <input class="form-control" type="text" step="0.1" name="data[filmCitat]" id="filmCitat" placeholder="Citat" value="">
                     </div>
                 </div>
-                <div class="col-2 col-md-6">
+<!--                filmUdkommelsesdato-->
+                <div class="col-12 col-md-6 p-2">
                     <div class="form-group">
-                        <label for="prodPris">Filmtid</label>
-                        <input class="form-control" type="number" step="0.1" name="data[filmTid]" id="filmTid" placeholder="Filmtid" value="">
+                        <label for="filmUdkommelsesdato">Udkommelsesdato</label>
+                        <input class="form-control" type="date" step="0.1" name="data[filmUdkommelsesdato]" id="filmUdkommelsesdato" placeholder="FilmUdkommelsesdato" value="">
                     </div>
                 </div>
-                <div class="col-12 col-md-6 offset-md-4 p-2">
+
+                <!--                filmResume-->
+                <div class="col-12 col-md-6 p-2">
+                    <div class="form-group">
+                        <label for="filmResume">Resumé</label>
+                        <textarea class="form-control" cols="4" name="data[filmResume]" id="filmResume" placeholder="Filmens resumé"></textarea>
+                    </div>
+                </div>
+                <div class="col-12 col-md-2 offset-md-4 p-2">
                     <button class="form-control btn btn-danger" type="submit" id="btnSubmit">Opret produkt</button>
                 </div>
+<!--                Opret -->
             </div>
 
         </form>

@@ -4,7 +4,10 @@
 
 body {
 	margin: 0;
-	font-family: Poppins, sans-serif;
+	background-image: url("../images/");
+	//font-family: "Times New Roman", sans-serif;
+	//-webkit-text-stroke: 1px white;
+	//color: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,5 +34,15 @@ img {
 	display: block;
 	max-width: 100%;
 	height: auto;
+}
+
+.filmtitel{
+	font-family: Poppins;
+	color: purple;
+}
+
+a{
+	text-transform: none;
+	text-decoration: none !important;
 }
 
