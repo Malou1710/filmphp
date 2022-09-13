@@ -4,7 +4,7 @@
 
 body {
 	margin: 0;
-	background-image: url("../images/");
+	background-image: url("../images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg") !important;
 	//font-family: "Times New Roman", sans-serif;
 	//-webkit-text-stroke: 1px white;
 	//color: black;
@@ -44,5 +44,13 @@ img {
 a{
 	text-transform: none;
 	text-decoration: none !important;
+}
+
+.form-control{
+	border-radius: 0% !important;
+}
+
+.tox-tinymce{
+	border-radius: 0% !important;
 }
 
