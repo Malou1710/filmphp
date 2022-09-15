@@ -1,3 +1,2 @@
-# Kickstarter projekt med PHP
-
-Klon dette projekt og kom hurtigt i gang med dit næste projekt.
+**Lille PHP aflevering**
+- Af Marie-Louise P.
