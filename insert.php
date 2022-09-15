@@ -44,7 +44,26 @@ if (!empty($_POST["data"])){
     $db->sql($sql, $bind, false);
 
 
-    echo "<h2 class='text-center'>Produktet er nu indsat.</h2> <h2 style='text-align: center'></h2> <a href='insert.php'><h3>Indsæt et produkt mere</h3></a>";
+    echo "<body style= 
+            'font-family: Times;
+            	background: rgb(0,0,0); background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(9,1,34,1) 36%, rgba(110,0,0,1) 100%, rgba(255,0,0,1) 100%, rgba(255,0,0,1) 100%) !important;
+            
+          '</body><h1 style='margin-top: 200px; 
+            text-decoration: none; 
+            font-family: Baskerville, sans-serif; 
+            display: flex;
+            justify-content: center;
+            color: white;
+            font-weight: normal;
+            font-size: 50px;
+            
+            '>Produktet er nu indsat.</h1> <
+            h2 style=
+            'justify-content: center; 
+            display: flex; 
+            font-family: Baskerville;
+            '><a style='text-decoration: none; color: white;' href='insert.php'><h3 style='font-weight: normal;'>Indsæt en film mere</button></h3></a>";
+
     exit();
 }
 ?>
@@ -80,39 +99,39 @@ if (!empty($_POST["data"])){
 <!-- i <body> har man alt indhold på siden som brugeren kan se -->
 <body>
 
-    <div class="container-fluid bg-dark text-light p-5 pb-1 text-center">
-        <h1 class="overskrift">FILM INFO</h1>
+    <div class="container-fluid text-light p-5 pb-1 text-center">
+        <h1 class="overskrift"><span>&#127916;</span>FILM INFO<span>&#127916;</span></h1>
     </div>
-    <div class="container-fluid bg-dark text-light p-5">
+    <div class="container-fluid text-light p-5">
         <form method="post" action="insert.php">
             <div class="row">
 <!--                filmTitel-->
                 <div class="col-12 col-md-6 p-2">
                     <div class="form-group m-2">
-                        <label for="filmTitel" class="filmtitel">Filmtitel</label>
+                        <label for="filmTitel" class="titel">FILMTITEL</label>
                         <input class="form-control" type="text" name="data[filmTitel]" id="filmTitel" placeholder="Filmtitel" value="">
                     </div>
                 </div>
 <!--                filmRating-->
                 <div class="col-12 col-md-6 p-2">
                     <div class="form-group m-2">
-                        <label for="filmRating" class="filmrating">Film rating</label>
-                        <input class="form-control" type="number" step="0.1" name="data[filmRating]" id="filmRating" placeholder="0-10" value="">
+                        <label for="filmRating" class="titel">FILMRATING</label>
+                        <input class="form-control" type="number" step="0.1" min="0" max="10" name="data[filmRating]" id="filmRating" placeholder="0-10" value="">
                     </div>
                 </div>
 
 <!--                filmAar-->
                 <div class="col-12 col-md-6 p-2">
                     <div class="form-group m-2">
-                        <label for="filmAar" class="aar">År</label>
-                        <input class="form-control" type="number" step="0.1" name="data[filmAar]" id="filmAar" placeholder="År" value="">
+                        <label for="filmAar" class="titel">ÅR</label>
+                        <input class="form-control" min="0000" max="2024" type="number" step="0.1" name="data[filmAar]" id="filmAar" placeholder="År" value="">
                     </div>
                 </div>
 
 <!--                filmSkuespillere-->
                 <div class="col-12 col-md-6 p-2">
                     <div class="form-group m-2">
-                        <label for="filmSkuespillere" class="actors">Skuespillere</label>
+                        <label for="filmSkuespillere" class="titel">SKUESPILLERE</label>
                         <input class="form-control" type="text" step="0.1" name="data[filmSkuespillere]" id="filmSkuespillere" placeholder="Skuespillere" value="">
                     </div>
                 </div>
@@ -121,35 +140,35 @@ if (!empty($_POST["data"])){
 
                 <div class="col-12 col-md-6 p-2">
                     <div class="form-group m-2">
-                        <label for="filmMPA" class="mpa">MPA-rating</label>
+                        <label for="filmMPA" class="titel">MPA-RATING</label>
                         <input class="form-control" type="number" step="0.1" name="data[filmMPA]" id="filmMPA" placeholder="FilmMPA" value="">
                     </div>
                 </div>
 <!--                filmTid-->
                 <div class="col-12 col-md-6 p-2">
                     <div class="form-group m-2">
-                        <label for="filmTid" class="tid">Tid</label>
+                        <label for="filmTid" class="titel">TID</label>
                         <input type="time" class="form-control" name="data[filmTid]" id="filmTid">
                     </div>
                 </div>
 <!--                filmInstuktør-->
                 <div class="col-12 col-md-6 p-2">
                     <div class="form-group m-2">
-                        <label for="filmInstruktor">Instruktør</label>
+                        <label for="filmInstruktor" class="titel">INSTRUKTØR</label>
                         <input class="form-control" type="text" step="0.1" name="data[filmInstruktor]" id="filmInstruktor" placeholder="Instruktør" value="">
                     </div>
                 </div>
 <!--                filmCitat-->
                 <div class="col-12 col-md-6 p-2">
                     <div class="form-group m-2">
-                        <label for="filmCitat">Kendt citat fra filmen</label>
+                        <label for="filmCitat" class="titel">KENDT CITAT FRA FILMEN</label>
                         <input class="form-control" type="text" step="0.1" name="data[filmCitat]" id="filmCitat" placeholder="Citat" value="">
                     </div>
                 </div>
 <!--                filmUdkommelsesdato-->
                 <div class="col-12 col-md-6 p-2">
                     <div class="form-group m-2">
-                        <label for="filmUdkommelsesdato">Udkommelsesdato</label>
+                        <label for="filmUdkommelsesdato" class="titel">Udkommelsesdato</label>
                         <input class="form-control" type="date" step="0.1" name="data[filmUdkommelsesdato]" id="filmUdkommelsesdato" placeholder="FilmUdkommelsesdato" value="">
                     </div>
                 </div>
@@ -157,12 +176,12 @@ if (!empty($_POST["data"])){
                 <!--                filmResume-->
                 <div class="col-12 col-md-6 p-2">
                     <div class="form-group m-2">
-                        <label for="filmResume">Resumé</label>
+                        <label for="filmResume" class="titel">Resumé</label>
                         <textarea class="form-control" cols="4" name="data[filmResume]" id="filmResume" placeholder="Filmens resumé"></textarea>
                     </div>
                 </div>
                 <div class="col-12 col-md-2 offset-md-4 p-2">
-                    <button class="form-control btn btn-danger" type="submit" id="btnSubmit">Opret produkt</button>
+                    <button class="form-control btn btn-dark" type="submit" id="btnSubmit">Opret produkt</button>
                 </div>
 <!--                Opret -->
             </div>
